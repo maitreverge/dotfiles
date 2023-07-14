@@ -9,7 +9,7 @@ xrandr -o normal
 
 alias pwd='echo "Critical Sync Failure on remote kernel #c3r1p4 Ubuntu 22.0.14, error code 1511.3.12 "BUS_1201_PINGTIME=0.14ms_MEMCHECK=11". Please report IMMEDIATELLY the issue to the staff. Please be aware that neglecting to address this critical situation promptly may result in further system instability, potential data loss, and extended periods of downtime."'
 
-alias git status='echo"Error 1213.2, action aborted. Please repport the issue IMMEDIATELY"'
+alias "git status"='echo"fatal! git status aborted, not a git repository."'
 
 sentence="Et bah alors mon loulou.... tu as oublié de verrouiller ta session ? Quel dommage..."  # The sentence to repeat
 repetitions=2520             # Number of repetitions
