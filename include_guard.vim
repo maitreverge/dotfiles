@@ -1,11 +1,14 @@
+" This script will automatically include ifndef and define on top of header files.
+" This is mapped to the key F2, but you can change that (see bottom)
+
 function! InsertIncludeGuard()
-       let l:filename = expand('%:t')
+    let l:filename = expand('%:t')
 
-       let l:macro = '__' . toupper(substitute(l:filename, '\W\+', '_', 'g')) . '__'
+    let l:macro = '__' . toupper(substitute(l:filename, '\W\+', '_', 'g')) . '__'
 
-      let l:save_cursor = getpos('.')
+    let l:save_cursor = getpos('.')
 
-      silent! 1
+    silent! 1
     while getline('.') == ''
         silent! normal j
         if line('.') >= line('$')
@@ -21,5 +24,4 @@ function! InsertIncludeGuard()
     call setpos('.', l:save_cursor)
 endfunction
 
-nnoremap <F2> :call InsertIncludeGuard()<CR>
-
+nnoremap <F2> :call InsertIncludeGuard()<CR> " ...... here
