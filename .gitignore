@@ -52,8 +52,7 @@ Mkfile.old
 dkms.conf
 
 # My Files
-master_main.c
-.DS_Store/
+.DS_Store
 
 # VIM: Temporary files
 *~
