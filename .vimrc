@@ -52,7 +52,7 @@ set showmatch       " Highlight matching parentheses
 
         " Important!!
         if has('termguicolors')
-          set termguicolors
+                set termguicolors
         endif
 
         " For dark version.

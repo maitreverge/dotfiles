@@ -4,7 +4,7 @@
 function! InsertIncludeGuard()
     let l:filename = expand('%:t')
 
-    let l:macro = '__' . toupper(substitute(l:filename, '\W\+', '_', 'g')) . '__'
+    let l:macro = toupper(substitute(l:filename, '\W\+', '_', 'g'))
 
     let l:save_cursor = getpos('.')
 
@@ -17,9 +17,9 @@ function! InsertIncludeGuard()
     endwhile
 
     put ='#ifndef ' . l:macro
-    put ='#define ' . l:macro
+    put ='# define ' . l:macro
     put ='/* Content of the header file */'
-    put ='#endif'
+    put ='# endif'
 
     call setpos('.', l:save_cursor)
 endfunction
