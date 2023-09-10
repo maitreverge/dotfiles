@@ -1,7 +1,8 @@
 #include <stdio.h>
 #include <string.h>
 
-void displayTestSeparator(const char *text, int colorCode) {
+void displayTestSeparator(const char *text, int colorCode)
+{
     int separatorLength = 38;  // Total length of the separator line
     int textLength = strlen(text);
     int paddingLength = separatorLength - textLength;
