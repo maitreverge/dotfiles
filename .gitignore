@@ -51,8 +51,9 @@ Module.symvers
 Mkfile.old
 dkms.conf
 
-# My Files
-.DS_Store
+## Mlx related
+Makefile.gen
+/test/mlx-test
 
 # VIM: Temporary files
 *~
@@ -60,4 +61,10 @@ dkms.conf
 # VIM: Swap-files
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
+
+#Others
+.DS_STORE
+.DS_Store
+
+# My Files
 
