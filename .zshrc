@@ -6,6 +6,8 @@ source $ZSH/oh-my-zsh.sh
 
 # COMMANDES CD
 alias go42="~/Documents/42_pedago"
+alias gosgoinfre="~/sgoinfre/"
+alias gogoinfre="~/goinfre/"
 alias goperso="~/Documents/personal_repos/"
 alias godotfiles="~/Documents/personal_repos/dotfiles"
 alias gocorrection="~/Documents/corrections"
@@ -26,6 +28,10 @@ alias cF="cc -Wall -Wextra -Werror"
 alias gFmem="gcc -Wall -Wextra -Werror -g"
 alias cFmem="cc -Wall -Wextra -Werror -g"
 
+# ALIAS VALGRIND
+alias valgrind_full="valgrind --leak-check=full --show-leak-kinds=all"
+alias valgrind_mute_child="valgrind --child-silent-after-fork=yes"
+
 # ALIAS DE NORMINETTE
 alias nc="norminette -R CheckForbiddenSourceHeader"
 alias nd="norminette -R CheckDefine"
@@ -34,6 +40,7 @@ alias nd="norminette -R CheckDefine"
 alias gs="git status"
 alias gcheck='git ls-tree -r --name-only origin/master'
 alias gp='git push'
+alias gpll='git pull'
 alias gl='GIT_PAGER= git log --pretty=format:"%h %s"'
 
 
@@ -43,14 +50,28 @@ function gcam() {
 }
 alias gcam='gcam'
 
-function gnl() {
-	cFmem get_next_line.c get_next_line_utils.c main.c && ./a.out
-	echo " "
-	echo "VALGRIND OUTPUT "
-	echo " "
-	valgrind --leak-check=full ./a.out
+function ff(){
+	make && ./fractol
 }
-alias gnl='gnl'
+
+alias ff='ff'
+
+function PF() {
+	make re && gcc my_tester.c libftprintf.a
+}
+alias PF='PF'
+
+# RUN SCRIPT GRADEME42
+alias rungrademe='bash -c "$(curl https://grademe.fr)"'
+
+# LIST FD
+listfd() {
+	if [ -z "$1" ]; then
+		echo "Usage : listfd <PID>"
+	else
+		ls -la "/proc/$1/fd"
+	fi
+}
 
 # ALIAS DIVERS
 alias lookfor='find . -name'
@@ -59,11 +80,9 @@ alias open="xdg-open ."
 alias gozshrc="vim ~/.zshrc"
 alias seezshrc="cat ~/.zshrc"
 
+
 # ALIAS FRANCINETTE
 alias francinette=/nfs/homes/flverge/francinette/tester.sh
 alias paco=/nfs/homes/flverge/francinette/tester.sh
 
-
-
-alias cclean='bash ~/Cleaner_42.sh'
-
+alias vscode="~/./code-stable-x64-1696981541/VSCode-linux-x64/bin/code"
