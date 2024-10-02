@@ -31,6 +31,7 @@ alias cFmem="cc -Wall -Wextra -Werror -g"
 # ALIAS VALGRIND
 alias valgrind_full="valgrind --leak-check=full --show-leak-kinds=all"
 alias valgrind_mute_child="valgrind --child-silent-after-fork=yes"
+alias valgrind_pipex="valgrind --trace-children=yes --leak-check=full --show-leak-kinds=all --track-fds=yes"
 
 # ALIAS DE NORMINETTE
 alias nc="norminette -R CheckForbiddenSourceHeader"
