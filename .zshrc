@@ -1,11 +1,14 @@
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:~/.local/bin
 ZSH_THEME="jonathan"
+
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # COMMANDES CD
 alias go42="~/Documents/42_pedago"
+alias gowebserv="~/Documents/42_pedago/webserv"
 alias gosgoinfre="~/sgoinfre/"
 alias gogoinfre="~/goinfre/"
 alias goperso="~/Documents/personal_repos/"
@@ -16,13 +19,12 @@ alias gosujet="xdg-open ~/Documents/sujets/"
 
 # COMMANDES PEDAGO
 
-alias golibft="~/Documents/42_pedago/FINISHED_PROJECTS/libft"
-alias gognl="~/Documents/42_pedago/FINISHED_PROJECTS/get_next_line"
-alias gofinished="~/Documents/42_pedago/FINISHED_PROJECTS"
-
 # ALIAS DE COMPILATEUR
 alias gF="gcc -Wall -Wextra -Werror"
 alias cF="cc -Wall -Wextra -Werror"
+alias c98="c++ -Wall -Wextra -std=c++98"
+alias g98="g++ -Wall -Wextra -std=c++98"
+alias cr="cargo run"
 
 # ALIAS DE COMPILATEUR AVEC VALGRIND FLAG -G
 alias gFmem="gcc -Wall -Wextra -Werror -g"
@@ -31,10 +33,10 @@ alias cFmem="cc -Wall -Wextra -Werror -g"
 # ALIAS VALGRIND
 alias valgrind_full="valgrind --leak-check=full --show-leak-kinds=all"
 alias valgrind_mute_child="valgrind --child-silent-after-fork=yes"
-alias valgrind_pipex="valgrind --trace-children=yes --leak-check=full --show-leak-kinds=all --track-fds=yes"
+alias datarace="valgrind --tool=helgrind"
 
 # ALIAS DE NORMINETTE
-alias nc="norminette -R CheckForbiddenSourceHeader"
+#alias nc="norminette -R CheckForbiddenSourceHeader"
 alias nd="norminette -R CheckDefine"
 
 # ALIAS GIT
@@ -51,28 +53,8 @@ function gcam() {
 }
 alias gcam='gcam'
 
-function ff(){
-	make && ./fractol
-}
-
-alias ff='ff'
-
-function PF() {
-	make re && gcc my_tester.c libftprintf.a
-}
-alias PF='PF'
-
 # RUN SCRIPT GRADEME42
 alias rungrademe='bash -c "$(curl https://grademe.fr)"'
-
-# LIST FD
-listfd() {
-	if [ -z "$1" ]; then
-		echo "Usage : listfd <PID>"
-	else
-		ls -la "/proc/$1/fd"
-	fi
-}
 
 # ALIAS DIVERS
 alias lookfor='find . -name'
@@ -80,10 +62,18 @@ alias rmF='rm -Rf'
 alias open="xdg-open ."
 alias gozshrc="vim ~/.zshrc"
 alias seezshrc="cat ~/.zshrc"
+alias lock="ft_lock"
+alias l="clear"
+alias md="make debug"
+alias mmd="make && md"
+alias killcache="bash ~/cleanCache.sh"
 
+alias postman="~/postman-linux-x64/Postman/ && ./Postman"
+alias chrome="setsid flatpak run com.google.Chrome > /dev/null 2>1 &"
 
 # ALIAS FRANCINETTE
 alias francinette=/nfs/homes/flverge/francinette/tester.sh
 alias paco=/nfs/homes/flverge/francinette/tester.sh
 
-alias vscode="~/./code-stable-x64-1696981541/VSCode-linux-x64/bin/code"
+# Kill 42 cache at each new zsh instance
+killcache
