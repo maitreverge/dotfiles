@@ -7,10 +7,6 @@ source $ZSH/oh-my-zsh.sh
 # COMMANDES CD
 alias go42="~/Documents/42_pedago"
 alias goinception="~/Documents/42_pedago/inception"
-alias gosgoinfre="~/sgoinfre/"
-alias gogoinfre="~/goinfre/"
-alias goperso="~/Documents/personal_repos/"
-alias godotfiles="~/Documents/personal_repos/dotfiles"
 alias gocorrection="~/Documents/corrections"
 alias gotest="~/Documents/test"
 alias godownlads="~/Downloads"
@@ -24,11 +20,6 @@ alias logs_wordpress="docker logs -f wordpress"
 alias gonginx="docker exec -it nginx /bin/bash"
 alias gomariadb="docker exec -it mariadb /bin/bash"
 alias gowordpress="docker exec -it wordpress /bin/bash"
-# COMMANDES PEDAGO
-
-alias golibft="~/Documents/42_pedago/FINISHED_PROJECTS/libft"
-alias gognl="~/Documents/42_pedago/FINISHED_PROJECTS/get_next_line"
-alias gofinished="~/Documents/42_pedago/FINISHED_PROJECTS"
 
 # ALIAS DE COMPILATEUR
 alias gF="gcc -Wall -Wextra -Werror"
@@ -53,7 +44,7 @@ alias gs="git status"
 alias gcheck='git ls-tree -r --name-only origin/master'
 alias gp='git push'
 alias gpll='git pull'
-alias gl='GIT_PAGER= git log --pretty=format:"%h %s"'
+alias gl='GIT_PAGER= git log --pretty=format:"%h %s" | head -10'
 
 
 # SCRIPT FULL ADD + FULL COMMIT
@@ -74,7 +65,6 @@ alias seezshrc="cat ~/.zshrc"
 alias master_update="sudo apt update -y && sudo apt upgrade -y && sudo snap refresh && sudo apt autoremove -y && python3 -m pip install --upgrade norminette && rustup update"
 alias tar_unzip="tar zxvf"
 alias lock="xdg-screensaver lock"
-alias l="clear"
 alias md="make debug"
 alias mmd="make && make debug"
 
