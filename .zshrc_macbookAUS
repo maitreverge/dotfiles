@@ -1,0 +1,87 @@
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="jonathan"
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# COMMANDES CD
+alias go42="~/Documents/42_pedago"
+alias goinception="~/Documents/42_pedago/inception"
+alias gosgoinfre="~/sgoinfre/"
+alias gogoinfre="~/goinfre/"
+alias goperso="~/Documents/personal_repos/"
+alias godotfiles="~/Documents/personal_repos/dotfiles"
+alias gocorrection="~/Documents/corrections"
+alias gotest="~/Documents/test"
+alias godownlads="~/Downloads"
+alias gosujet="xdg-open ~/Documents/sujets/"
+
+# DOCKER COMMANDS
+alias logs_nginx="docker logs -f nginx"
+alias logs_mariadb="docker logs -f mariadb"
+alias logs_wordpress="docker logs -f wordpress"
+
+alias gonginx="docker exec -it nginx /bin/bash"
+alias gomariadb="docker exec -it mariadb /bin/bash"
+alias gowordpress="docker exec -it wordpress /bin/bash"
+# COMMANDES PEDAGO
+
+alias golibft="~/Documents/42_pedago/FINISHED_PROJECTS/libft"
+alias gognl="~/Documents/42_pedago/FINISHED_PROJECTS/get_next_line"
+alias gofinished="~/Documents/42_pedago/FINISHED_PROJECTS"
+
+# ALIAS DE COMPILATEUR
+alias gF="gcc -Wall -Wextra -Werror"
+alias cF="cc -Wall -Wextra -Werror"
+
+# ALIAS DE COMPILATEUR AVEC VALGRIND FLAG -G
+alias gFmem="gcc -Wall -Wextra -Werror -g"
+alias cFmem="cc -Wall -Wextra -Werror -g"
+
+# ALIAS VALGRIND
+alias valgrind_full="valgrind --leak-check=full --show-leak-kinds=all"
+alias valgrind_mute_child="valgrind --child-silent-after-fork=yes"
+alias valgrind_datarace_1="valgrind --tool=helgrind --ignore-thread-creation=yes"
+alias valgrind_datarace_2="valgrind --tool=drd"
+alias valgrind_pipex="valgrind --trace-children=yes --leak-check=full --show-leak-kinds=all --track-fds=yes"
+
+# ALIAS DE NORMINETTE
+alias nd="norminette -R CheckDefine"
+
+# ALIAS GIT
+alias gs="git status"
+alias gcheck='git ls-tree -r --name-only origin/master'
+alias gp='git push'
+alias gpll='git pull'
+alias gl='GIT_PAGER= git log --pretty=format:"%h %s"'
+
+
+# SCRIPT FULL ADD + FULL COMMIT
+function gcam() {
+    git add -A && git add . && git commit -m "$1"
+}
+alias gcam='gcam'
+
+# RUN SCRIPT GRADEME42
+alias rungrademe='bash -c "$(curl https://grademe.fr)"'
+
+# ALIAS DIVERS
+alias lookfor='find . -name'
+alias rmF='rm -Rf'
+alias open="xdg-open ."
+alias gozshrc="vim ~/.zshrc"
+alias seezshrc="cat ~/.zshrc"
+alias master_update="sudo apt update -y && sudo apt upgrade -y && sudo snap refresh && sudo apt autoremove -y && python3 -m pip install --upgrade norminette && rustup update"
+alias tar_unzip="tar zxvf"
+alias lock="xdg-screensaver lock"
+alias l="clear"
+alias md="make debug"
+alias mmd="make && make debug"
+
+# ALIAS FRANCINETTE
+alias francinette=/home/flverge/francinette/tester.sh
+alias paco=/nfs/homes/flverge/francinette/tester.sh
+
+alias lazydocker='docker run --rm -it -v /var/run/docker.sock:/var/run/docker.sock -v /yourpath/config:/.config/jesseduffield/lazydocker lazyteam/lazydocker'
+# Created by `pipx` on 2024-02-13 09:43:44
+export PATH="$PATH:/home/flverge/.local/bin"
