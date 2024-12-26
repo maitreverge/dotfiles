@@ -12,14 +12,22 @@ alias gotest="~/Documents/test"
 alias godownlads="~/Downloads"
 alias gosujet="xdg-open ~/Documents/sujets/"
 
-# DOCKER COMMANDS
+# Inception Shortcuts
 alias logs_nginx="docker logs -f nginx"
 alias logs_mariadb="docker logs -f mariadb"
 alias logs_wordpress="docker logs -f wordpress"
+alias logs_redis="docker logs -f redis"
+alias logs_ftp="docker logs -f ftp"
+alias logs_static_website="docker logs -f static_website"
+alias logs_adminer="docker logs -f adminer"
 
 alias gonginx="docker exec -it nginx /bin/bash"
 alias gomariadb="docker exec -it mariadb /bin/bash"
 alias gowordpress="docker exec -it wordpress /bin/bash"
+alias goredis="docker exec -it redis /bin/bash"
+alias goftp="docker exec -it ftp /bin/bash"
+alias gostaticwebsite="docker exec -it static_website /bin/bash"
+alias goadminer="docker exec -it adminer /bin/bash"
 
 # ALIAS DE COMPILATEUR
 alias gF="gcc -Wall -Wextra -Werror"
@@ -67,6 +75,7 @@ alias tar_unzip="tar zxvf"
 alias lock="xdg-screensaver lock"
 alias md="make debug"
 alias mmd="make && make debug"
+alias cl="clear"
 
 # ALIAS FRANCINETTE
 alias francinette=/home/flverge/francinette/tester.sh
