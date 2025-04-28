@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# IMPORTANT: This script must be sourced, not executed:
+#   source ./p_env.sh activate
+#   or
+#   . ./p_env.sh activate
+
 # 🙏 Special thanks to DHRUV MAKWANA to making the base script 🙏
 # You can find his original script at :
 # https://makwanadhruv.medium.com/automating-virtual-environments-bash-script-magic-for-python-developers-3a06df1777a6
@@ -134,6 +139,12 @@ remove_venv() {
 if [ "$1" = "--help" ] || [ "$1" = "-h" ]; then
     print_help
     return 0
+fi
+
+if [[ "${BASH_SOURCE[0]}" == "${0}" ]]; then
+    echo -e "\e[1;31mERROR: This script must be sourced, not executed.\e[0m"
+    echo -e "Please run: \e[1;32msource $0 [command]\e[0m or \e[1;32m. $0 [command]\e[0m"
+    exit 1
 fi
 
 case "$1" in
