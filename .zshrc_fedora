@@ -1,0 +1,75 @@
+export ZSH="$HOME/.oh-my-zsh"
+
+ZSH_THEME="jonathan"
+
+plugins=(git)
+
+# Redefine $PATH env
+export PATH=$HOME/.local/bin:$HOME/Documents/android-studio/bin:$PATH
+
+source $ZSH/oh-my-zsh.sh
+
+alias master_update="sudo dnf upgrade --refresh  && sudo dnf autoremove && sudo dnf clean packages"
+
+# COMMANDES CD
+alias gotest="~/Documents/test"
+alias godev="~/Documents/dev"
+alias gocorrection="~/Documents/corrections"
+alias godownload="~/Downloads"
+
+# COMMANDES PEDAGO
+
+# ALIAS DE COMPILATEUR
+
+# ALIAS DE COMPILATEUR AVEC VALGRIND FLAG -G
+
+# ALIAS VALGRIND
+alias valgrind_full="valgrind --leak-check=full --show-leak-kinds=all"
+alias valgrind_mute_child="valgrind --child-silent-after-fork=yes"
+alias datarace="valgrind --tool=helgrind"
+
+# ALIAS DE NORMINETTE
+
+# ALIAS GIT
+alias gs="git status"
+alias gp='git push'
+alias gpll='git pull'
+alias gl='git log --pretty=format:"%h %s"'
+
+# `git tree` is now a valid alias
+git config --global alias.tree "log --oneline --graph --all --decorate"
+
+# UMASK SETTINGS
+umask 002
+
+# SCRIPT FULL ADD + FULL COMMIT
+function gcam() {
+    git add -A && git add . && git commit -m "$1"
+}
+alias gcam='gcam'
+
+# ALIAS DIVERS
+alias lookfor='find . -name'
+alias rmF='rm -Rf'
+alias open="xdg-open ."
+alias zzz="zellij"
+alias gozshrc="vim ~/.zshrc"
+alias seezshrc="cat ~/.zshrc"
+alias p3="python3"
+alias f8="flake8"
+alias open="xdg-open ."
+alias rust="evcxr"
+alias cl="clear"
+alias lzd="lazydocker"
+
+# Turn on Zellij by default is $ZELLIJ exists in current env
+# Also disable it when running in VS Code or Zed
+if [[ ! -v $ZELLIJ && -v $ZED_TERM && ! "$TERM_PROGRAM" = "vscode" ]]; then
+    zellij
+fi
+
+# Lazydocker settings
+#alias lzd='~/.local/bin/lazydocker'
+
+export PATH=$HOME/.local/bin:$HOME/Documents/android-studio/bin:$PATH
+. "/home/maitreverge/.deno/env"
