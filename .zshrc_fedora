@@ -64,7 +64,7 @@ alias lzd="lazydocker"
 
 # Turn on Zellij by default is $ZELLIJ exists in current env
 # Also disable it when running in VS Code or Zed
-if [[ ! -v $ZELLIJ && -v $ZED_TERM && ! "$TERM_PROGRAM" = "vscode" ]]; then
+if [[ ! -v $ZELLIJ && ! $ZED_TERM && ! "$TERM_PROGRAM" = "vscode" ]]; then
     zellij
 fi
 
