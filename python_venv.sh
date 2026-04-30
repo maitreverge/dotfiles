@@ -31,7 +31,7 @@ print_help() {
 check_virtualenv() {
     if ! command -v virtualenv &> /dev/null; then
         echo -e "$YELLOW virtualenv is not installed. Installing...$ESC"
-        python3 -m pip install --user virtualenv
+        sudo apt install python3-virtualenv
         echo -e "$GREEN virtualenv installation complete.$ESC"
     fi
 }
