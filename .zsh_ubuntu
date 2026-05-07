@@ -5,7 +5,7 @@ ZSH_THEME="jonathan"
 plugins=(git)
 
 # Redefine $PATH env
-export PATH=$HOME/.local/bin:$HOME/Documents/android-studio/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/Documents/android-studio/bin:$PATH:$HOME/snap/code/233/.local/share/../bin
 
 source $ZSH/oh-my-zsh.sh
 
@@ -61,16 +61,34 @@ alias open="xdg-open ."
 alias rust="evcxr"
 alias cl="clear"
 alias lzd="lazydocker"
-alias copy="wl-copy"
 alias chx="chmod +x"
 
-# Python check
+## COPY ALIASES
+# Wayland
+alias copy_wl="wl-copy"
+# x11
+alias copy_x11="xclip -selection clipboard"
+
+# VNC CASTING 42
+alias cast42="x11vnc -display :0 -clip 3840x2160+1920+0 -ncache_cr -cursor most -nocursorshape -noxdamage -forever -rfbauth ~/.vnc/passwd"
+
+# PYTHON CHECKER
 pcheck() {
   black "$@" && mypy "$@" && flake8 "$@" && pylint "$@"
 }
+
+LS_COLORS="ex=1;31:$LS_COLORS"
+export LS_COLORS
+
 
 # Turn on Zellij by default is $ZELLIJ exists in current env
 # Also disable it when running in VS Code or Zed
 if [[ ! -v $ZELLIJ && ! "$TERM_PROGRAM" = "vscode" ]]; then
     zellij --layout compact
 fi
+
+. "$HOME/snap/code/233/.local/share/../bin/env"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
